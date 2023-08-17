@@ -3,9 +3,9 @@ def convert_roman(list_num):
     to_roman = 0
     max_list = max(list_num)
 
-    for i in list_num:
-        if max_list > i:
-            to_roman += i
+    for n in list_num:
+        if max_list > n:
+            to_roman += n
 
     return (max_list - to_roman)
 
@@ -17,23 +17,23 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return 0
 
-    roman_num = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    list_keys = list(roman_num.keys())
+    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    list_keys = list(rom_n.keys())
 
     num = 0
-    last_roman = 0
+    last_rom = 0
     list_num = [0]
 
-    for i in roman_string:
-        for j in list_keys:
-            if j == i:
-                if roman_num.get(i) <= last_roman:
+    for ch in roman_string:
+        for r_num in list_keys:
+            if r_num == ch:
+                if rom_n.get(ch) <= last_rom:
                     num += convert_roman(list_num)
-                    list_num = [roman_num.get(i)]
+                    list_num = [rom_n.get(ch)]
                 else:
-                    list_num.append(roman_num.get(i))
+                    list_num.append(rom_n.get(ch))
 
-                last_roman = roman_num.get(i)
+                last_rom = rom_n.get(ch)
 
     num += convert_roman(list_num)
 
