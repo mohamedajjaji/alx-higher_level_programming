@@ -3,7 +3,8 @@
 as a parameter, and displays the body of the response.
 """
 import sys
-from urllib import request, parse
+import urllib.parse
+import urllib.request
 
 
 if __name__ == "__main__":
